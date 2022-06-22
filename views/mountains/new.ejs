@@ -2,37 +2,36 @@
     <div class="row">
         <h1 class="text-center">New Mountain</h1>
         <div class="col-6 offset-3">
-            <form action="/campgrounds" method="POST">
+            <form action="/mountains" method="POST" novalidate class="validated-form">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <input class="form-control" type="text" id="title" name="campground[title]">
+                    <input class="form-control" type="text" id="title" name="mountain[title]" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
-                    <input class="form-control" type="text" id="location" name="campground[location]">
+                    <input class="form-control" type="text" id="location" name="mountain[location]" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="image">Image Url</label>
-                    <input class="form-control" type="text" id="image" name="campground[image]">
+                    <input class="form-control" type="text" id="image" name="mountain[image]" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="height">Mountain height</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="height" placeholder="0" aria-label="height"
-                            aria-describedby="height-label" name="campground[height]">
+                            aria-describedby="height-label" name="mountain[height]" required>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" type="text" id="description"
-                        name="campground[description]"></textarea>
+                    <textarea class="form-control" type="text" id="description" name="mountain[description]"></textarea>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-success">Add Campground</button>
+                    <button class="btn btn-success">Add Mountain</button>
                 </div>
             </form>
-            <a href="/campgrounds">All Campgrounds</a>
+            <a href="/mountains">All Mountains</a>
         </div>
     </div>

@@ -1,9 +1,9 @@
 <% layout('layouts/boilerplate')%>
     <h1>山行一覧</h1>
     <div>
-        <a href="/campgrounds/new">Add New Mountain</a>
+        <a href="/mountains/new">Add New Mountain</a>
     </div>
-    <% for (let campground of campgrounds){%>
+    <% for (let mountain of mountains){%>
         <div class="card" mb-3>
             <div class="row">
                 <div class="col-md-4">
@@ -13,18 +13,18 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <%= campground.title%>
+                            <%= mountain.title%>
                         </h5>
                         <p class="card-text">
-                            <%= campground.description %>
+                            <%= mountain.description %>
                         </p>
                         <p class="card-text">
                             <small class="text-muted">
-                                <%= campground.location %>
+                                <%= mountain.location %>
                             </small>
                         </p>
-                        <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">View <%= campground.title%>
-                                </a>
+                        <a class="btn btn-primary" href="/mountains/<%=mountain._id%>">View <%= mountain.title%>
+                        </a>
                     </div>
                 </div>
             </div>

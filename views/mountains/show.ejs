@@ -7,23 +7,23 @@
                     alt="...">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <%= campground.title%>
+                        <%= mountain.title%>
                     </h5>
                     <p class="card-text">
-                        <%= campground.description%>
+                        <%= mountain.description%>
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-muted">
-                        <%= campground.location%>
+                        <%= mountain.location%>
                     </li>
                     <li class="list-group-item">
-                        <%= campground.height%>m
+                        <%= mountain.height%>m
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
-                    <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                    <a class="card-link btn btn-info" href="/mountains/<%=mountain._id%>/edit">Edit</a>
+                    <form class="d-inline" action="/mountains/<%=mountain._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Delete</button>
                     </form>
                 </div>
