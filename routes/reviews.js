@@ -21,6 +21,7 @@ router.post('/:id/reviews', validateReview, catchAsync(async (req, res) => {
     mountain.reviews.push(review);
     await review.save();
     await mountain.save();
+    req.flash('success', 'Created new review');
     res.redirect(`/mountains/${mountain._id}`);
 }))
 
@@ -28,6 +29,7 @@ router.delete('/:id/reviews/:reviewId', catchAsync(async (req, res) => {
     const { id, reviewId } = req.params;
     await Mountain.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
     await Review.findByIdAndDelete(reviewId);
+    req.flash('success', 'Successfully deleted review');
     res.redirect(`/mountains/${id}`);
 }))
 
