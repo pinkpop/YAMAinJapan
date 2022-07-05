@@ -37,10 +37,14 @@ router.post('/login', passport.authenticate('local', { failureFlash: 'bad login'
     res.redirect(redirectUrl);
 })
 
-router.get('/logout', (req, res) => {
-    req.logout();
-    req.flash('success', "Goodbye!");
-    res.redirect('/mountains');
-})
+router.get('/logout', function (req, res, next) {
+    req.logout(function (err) {
+        if (err) {
+            return next(err);
+        }
+        req.flash('success_msg', 'session terminated');
+        res.redirect('/mountains');
+    });
+});
 
 module.exports = router;

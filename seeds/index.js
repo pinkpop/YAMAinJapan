@@ -24,6 +24,7 @@ const seedDB = async () => {
     for (let i = 0; i < 50; i++) {
         const random1000 = Math.floor(Math.random() * 1000);
         const mount = new Mountain({
+            author: '62c23cd1e8101cad3655273b',
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             image: 'https://source.unsplash.com/random/600x400?sig=incrementingIdentifier',
