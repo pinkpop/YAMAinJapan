@@ -6,24 +6,29 @@
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input class="form-control" type="text" id="title" name="mountain[title]"
-                        value="<%=mountain.title %>">
+                        value="<%=mountain.title %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
                     <input class="form-control" type="text" id="location" name=mountain[location]"
-                        value="<%=mountain.location %>">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="image">Image Url</label>
-                    <input class="form-control" type="text" id="image" name=mountain[image]"
-                        value="<%mountain.image %>">
+                        value="<%=mountain.location %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="height">Mountain Height</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="height" placeholder="0" aria-label="height"
-                            aria-describedby="height-label" name=mountain[height]" value="<%mountain.height %>">
+                            aria-describedby="height-label" name=mountain[height]" value="<%mountain.height %>"
+                            required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
                     </div>
                 </div>
 
@@ -31,7 +36,30 @@
                     <label class="form-label" for="description">Description</label>
                     <textarea class="form-control" type="text" id="description"
                         name=mountain[description]"><%= mountain.description%></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
+
+                <div class="mb-3">
+                    <div class="form-file custom-file">
+                        <input type="file" class="form-file-input" id="image" name="image" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Add more image(s)...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <% mountain.images.forEach(function(img, i) { %>
+                        <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                        </div>
+                        <label for="image-<%=i%>">Delete?</label>
+                        <% })%>
+                </div>
+
                 <div class="mb-3">
                     <button class="btn btn-info">Update Mountain</button>
                 </div>

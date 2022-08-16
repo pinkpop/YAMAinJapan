@@ -14,6 +14,7 @@ module.exports.isLoggedIn = (req, res, next) => {
 
 module.exports.validateMountain = (req, res, next) => {
     const { error } = mountainSchema.validate(req.body);
+    console.log(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new ExpressError(msg, 400)

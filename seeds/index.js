@@ -27,7 +27,20 @@ const seedDB = async () => {
             author: '62c23cd1e8101cad3655273b',
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: 'https://source.unsplash.com/random/600x400?sig=incrementingIdentifier',
+            geometry: {
+                type: "Point",
+                coordinates: [-113.1331, 47.0202]
+            },
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dicdombr3/image/upload/v1660651058/YAMAinJapan/hyinx9zek1oysdtgxcd4.jpg',
+                    filename: 'YAMAinJapan/hyinx9zek1oysdtgxcd4'
+                },
+                {
+                    url: 'https://res.cloudinary.com/dicdombr3/image/upload/v1660651058/YAMAinJapan/ummdgtaoppgz0d1hjnej.jpg',
+                    filename: 'YAMAinJapan/ummdgtaoppgz0d1hjnej'
+                }
+            ],
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque magni et vel pariatur dolor soluta sint ipsam molestias unde, ad dolorem, ratione sit accusamus odit nemo quam voluptate earum fugiat.',
             height: random1000
         })
