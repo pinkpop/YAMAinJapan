@@ -11,6 +11,8 @@ ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200');
 });
 
+const opts = { toJSON: { virtuals: true } };
+
 const MountainSchema = new Schema({
     title: String,
     images: [ImageSchema],
@@ -38,7 +40,13 @@ const MountainSchema = new Schema({
             ref: 'Review'
         }
     ]
-})
+},opts);
+
+MountainSchema.virtual('properties.popUpMarkup').get(function () {
+    return `
+    <strong><a href="/mountains/${this._id}">${this.title}</a><strong>
+    <p>${this.description.substring(0, 20)}...</p>`
+});
 
 MountainSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
